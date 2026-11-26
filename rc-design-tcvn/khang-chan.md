@@ -14,12 +14,31 @@
 | Điều | Nội dung | DCM | DCH |
 |---|---|---|---|
 | 4.4.2.2 (tr.67–68) | θ = Ptot·dr/(Vtot·h): ≤ 0,1 bỏ qua P-Δ; 0,1–0,2 nhân 1/(1−θ); ≤ 0,3 | ✓ | ✓ |
-| 4.4.2.3(4)–(6), (4.29) (tr.68–69) | Cột khỏe – dầm yếu ΣMRc ≥ 1,3·ΣMRb tại nút, 2 phương, 2 chiều; không áp cho tầng trên cùng | ✓ | ✓ |
+| 4.4.2.3(4)–(6), (4.29) (tr.68–69) | Cột khỏe – dầm yếu ΣMRc ≥ 1,3·ΣMRb tại nút, 2 phương, 2 chiều; không áp cho tầng trên cùng (chi tiết mục C) | ✓ | ✓ |
 | 5.4.2.3, (5.9) (tr.85–86); 5.5.2.2 (tr.100) | Lực cắt theo khả năng VEd = γRd·(MRc,1 + MRc,2)/Lcl·min(1; ΣMRb/ΣMRc), MRc tại N động đất; γRd | 1,1 | 1,3 |
 | 5.4.3.2.1(3) / 5.5.3.2.1(3) | νd = NEd/(Ac·fcd) ≤ | 0,65 | 0,55 |
 | 5.4.3.2.1(2) | Uốn hai phương: cho phép kiểm riêng từng phương với MRd giảm 30 % (không cần nếu dùng mặt tương tác 3D) | | |
 - Lcl = L − hb (hb chiều cao dầm tại đầu cột). Chưa có thép dầm → lấy min(...) = 1 (thiên an toàn) và ghi "(4.29) chưa
-  kiểm tra" (người dùng dự định làm tool riêng cho 4.29).
+  kiểm tra". (4.29) tính riêng – xem mục C; kết quả min(1; ΣMRb/ΣMRc) theo từng đầu cột đưa vào (5.9).
+
+## C. Cột khỏe – dầm yếu (4.29) tại nút
+- ΣMRc ≥ 1,3·ΣMRb tại mọi nút dầm – cột kháng chấn, nhà khung ≥ 2 tầng (4.4.2.3(4), tr.68); 2 phương X / Y tổng thể
+  (dung sai 15°), cả hai chiều (+/−), mô men cột ngược chiều mô men dầm (4.4.2.3(5)); không áp dụng tầng trên cùng
+  (4.4.2.3(6)) – nút không có cột phía trên (kể cả mái bậc thụt) coi như tầng trên cùng (**suy luận**).
+- ΣMRc (tr.69): MRc nhỏ nhất trong khoảng biến thiên lực dọc do động đất; cho phép dùng MR tại mặt nút. Cột dùng mặt tương
+  tác N–M của `cot.md` (Rb·γb3).
+- ΣMRb: dầm tính theo TCVN 5574 (fcd ≈ Rb, fyd ≈ Rs – quy đổi, **suy luận**), Rb với γb1 = 1,0, Rsc giá trị trong ngoặc:
+  - Mô men âm: thép chịu kéo = thép trên dầm + **thép sàn trong beff** (5.2.3.3(3), người dùng chốt **luôn kể**); vùng
+    nén ở sườn b, thép nén = thép dưới dầm. (34)–(35) tr.57; x > ξR·h0 → x = ξR·h0 (8.1.2.3.5).
+  - Mô men dương: chữ T cánh nén beff × hf ((36)–(38) tr.57–58, beff dùng cho cả cánh nén – **suy luận**); x < 2a' →
+    (39) tr.59 với a' thay bằng min(a'; x0/2) (**suy luận**, mở rộng cho tiết diện không đối xứng).
+- beff (5.4.3.1.1(3), Hình 5.5, tr.89): cột biên – bc (không có dầm ngang) / bc + 2hf mỗi bên (có dầm ngang); cột trong –
+  thêm 2hf mỗi bên. Dầm ngang bất kể chiều cao coi như "cùng chiều cao" (beff lớn hơn – thiên an toàn, **suy luận**).
+- Nguồn thép dầm theo ưu tiên: nhập tay tại nút > thép bố trí tab Thép dầm > As yêu cầu ETABS (sơ bộ, giả thiết Ø20).
+  a = c + Øđai + Ømax/2 (1 lớp).
+- Ngoại lệ 5.2.3.3(2) tr.79: a) khung phẳng ≥ 4 cột tiết diện gần giống nhau → cho phép 1/4 số cột không thỏa (chỉ ghi
+  chú, không tự miễn); b) tầng dưới nhà 2 tầng nếu νd ≤ 0,3 ở mọi cột.
+- Không thỏa → ETABS Tool có chức năng đề xuất thép cột cho nhóm.
 - N–M với tổ hợp động đất: như cột thường (`cot.md`), tổ hợp ngắn hạn.
 
 ## B. Cấu tạo
